@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let newPost = document.createElement('journal-entry');
         newPost.entry = entry;
         document.querySelector('main').appendChild(newPost);
-        // this is where 'click' on entry happens
+        // this is where 'click' on entry happens ------------------------
         newPost.addEventListener('click', () => {
           let entryNum = entries.indexOf(entry) + 1;
           let entryPage = document.querySelector('body');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           setState(`entry${entryNum}`);
         })
-        // --------------------------------------------------
+        // ----------------------------------------------------------------
       });
     });
 });
@@ -42,6 +42,7 @@ document.querySelector("img[src='settings.svg']").addEventListener('click', () =
   header.textContent = "Settings";
 
   setState("settings");
+  // window.addEventListener('popstate', e); 
 });
 
 document.querySelector("h1").addEventListener('click', () => {
@@ -52,9 +53,9 @@ document.querySelector("h1").addEventListener('click', () => {
   header.textContent = "Journal Entries";
 
   setState("tittle");
+  // window.addEventListener('popstate', e); 
 });
 
 
-// window.addEventListener("") {
 
 
