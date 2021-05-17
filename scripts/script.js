@@ -13,26 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let newPost = document.createElement('journal-entry');
         newPost.entry = entry;
         document.querySelector('main').appendChild(newPost);
-        
+        // this is where 'click' on entry happens
         newPost.addEventListener('click', () => {
           let entryNum = entries.indexOf(entry) + 1;
           let entryPage = document.querySelector('body');
           entryPage.setAttribute("class", "single-entry"); 
 
-          setState(`Entry${entryNum}`);
+          let header = document.querySelector('h1');
+          header.textContent = `Entry ${entryNum}`;
+
+          document.querySelector('entry-page').remove();
+          let singleEntry = document.createElement('entry-page');
+          singleEntry.entry = entry;
+          document.querySelector('body').appendChild(singleEntry);
+
+          setState(`entry${entryNum}`);
         })
+        // --------------------------------------------------
       });
     });
-
-  // document.querySelector('journal-entry').addEventListener('click', () => {
-  //   let single = document.querySelector('body');
-  //   single.setAttribute("class", "single-entry");
-
-  //   let header = document.querySelector('h1');
-  //   header.textContent = "Entry";
-
-  //   setState("single-entry");
-  // });
 });
 
 document.querySelector("img[src='settings.svg']").addEventListener('click', () => {
