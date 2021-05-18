@@ -8,15 +8,15 @@ export const router = {};
 router.setState = function (toPage) {
   
   if (toPage == "settings") {
-    history.pushState("settings", "", "./#settings")
+    history.pushState({'header' : "Settings", 'classname' : "settings"}, "", "./#settings")
   }
 
-  if (toPage == "tittle") {
-    history.pushState("tittle", "", "./")
+  else if (toPage == "tittle") {
+    history.pushState({'header' : "Journal Entries", 'classname' : ""}, "", "./")
   }
 
   else {
-    history.pushState(`${toPage}`, "", `./#${toPage}`)
+    history.pushState({'header' : `Entry ${toPage}`, 'classname' : "entry-page"}, "", `./#entry${toPage}`)
   }
 
   /**

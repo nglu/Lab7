@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
           singleEntry.entry = entry;
           document.querySelector('body').appendChild(singleEntry);
 
-          setState(`entry${entryNum}`);
+          setState(`${entryNum}`);
+
         })
         // ----------------------------------------------------------------
       });
@@ -66,8 +67,10 @@ document.querySelector("h1").addEventListener('click', () => {
 });
 
 window.onpopstate = function(event){
-  alert(event);
+  let heading = document.querySelector("h1");
+  heading.textContent = event.state.header;
+
+  let pageLayout = document.querySelector('body');
+  pageLayout.setAttribute("class", event.state.classname);
+  
 };
-
-// testing testing
-
